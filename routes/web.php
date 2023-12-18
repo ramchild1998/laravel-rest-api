@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Call API
+Route::get('/view/detail/users',[RegisterController::class, 'index'])->name('view/detail/users');
+
+// Login API
+Route::get('login', [RegisterController::class, 'index'])->name('login');

@@ -54,11 +54,13 @@ class RegisterController extends BaseController
             $success['token'] = $user->createToken('MyApp')->plainTextToken;
             $success['name'] = $user->name;
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Login Berhasil!',
-                'data' => $success
-            ]);
+            return view ('login')->with('data', $success);
+
+            // return response()->json([
+            //     'success' => true,
+            //     'message' => 'Login Berhasil!',
+            //     'data' => $success
+            // ]);
         }else{
 
             return response()->json([
@@ -67,5 +69,11 @@ class RegisterController extends BaseController
                 'data' => null
             ]);
         }
+    }
+
+    public function index()
+    {
+        //
+        return view ('login');
     }
 }
